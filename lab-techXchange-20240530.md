@@ -5,6 +5,8 @@
 
 Joel Milgram, Principal, Athena Decision Systems
 
+joel@athenadecisions.com
+
 https://athenadecisions.com/
 
 ---
@@ -35,11 +37,13 @@ specific situation.
 ## IA Générative et Règles Métier pour automatiser intelligemment des décisions opérationnelles
 
 
-**Bonjour à tous et bienvenue à notre workshop sur l'automatisation intelligente des décisions avec IBM!**
+**Bonjour à tous et bienvenue à notre workshop sur l'automatisation intelligente des décisions avec Athena et IBM !**
 
-Aujourd'hui, nous allons explorer comment les technologies d'intelligence artificielle, et plus particulièrement les assistants conversationnels basés sur l'IA générative, peuvent être utilisés pour extraire des informations pertinentes et automatiser certaines tâches liées aux textes. Cependant, nous verrons également que ces assistants peuvent rencontrer des limites lorsqu'il s'agit de prendre des décisions complexes, notamment lorsqu'ils doivent interpréter des policies ou des règles métier détaillées.
+Aujourd'hui, nous allons explorer comment les technologies d'intelligence artificielle, et plus particulièrement les assistants conversationnels basés sur l'IA générative, peuvent être utilisés pour extraire des informations pertinentes et automatiser certaines tâches liées aux textes. Cependant, nous verrons également que ces assistants peuvent rencontrer des limites lorsqu'il s'agit de prendre des décisions complexes, notamment lorsqu'ils doivent interpréter des policies ou des règles métier détaillées. L'IA générative démontre des capacités remarquables pour travailler sur des documents : résumé, traduction, mise en relation, recherches sémantiques... En revanche, si on lui demande de prendre une décision sur la base de règles, l'approche probabiliste du LLM (Large Language Model) risque de générer un résultat totalement incorrect qui pourrait être préjudiciable dans un contexte métier.
 
-Pour surmonter ces limitations, nous allons explorer un concept fondamental qui ne doit pas être éclipsé par les avancées fulgurantes de l'IA générative. Il s'agit de savoir tirer le meilleur parti de toutes les technologies d'Intelligence Artificielle : appliquer une IA hybride. L'IA générative a démontré des capacités remarquables pour travailler sur des documents : résumé, traduction, mise en relation, recherches sémantiques... En revanche, si l'on demande à une IA générative de prendre une décision sur la basee de règles, l'approche probabiliste du LLM (Large Language Model) risque de générer un résultat totalement incorrect qui pourrait être préjudiciable dans un contexte métier.
+Pour surmonter cette limitation tout en profitant des avancées fulgurantes de l'IA générative, nous allons lui associer la technologie la plus spécialisée dans l'automatisation des décisions opérationnelles : le moteur de règles. Les moteurs d'automatisation des règles métier et des décisions opérationnelles sont également issus des travaux de l'Intelligence Artificielle et qualifiés d'IA symbolique puisqu'ils reposent sur la logique booléenne, les faits, les règles, les tables de décision et l'inférence. Ce workshop est donc un exemple d'IA hybride alliant l'IA symbolique et déterministe et l'IA neuronale et probabiliste (l'IA générative s'apparente aux réseaux de neurones). L'une permet de prendre des décisions correctes, précises, explicables et reproductibles sur la base d'une invocation de l'autre qui lui fournit des paramètres extraits de la conversation et qui présente les résultats à l'utilisateur sous forme textuelle en respectant un prompt.
+
+
 Dans ce workshop, nous allons utiliser le framework d'OpenAI pour implémenter l'agent conversationnel et ODM (Operational Decision Manager) comme moteur de règles métier.
 Nous allons charger le document contenant les règles métier dans l'assistant et tenter de lui faire appliquer ces règles.
 Nous allons ensuite permettre à l'assistant d'accéder au moteur de décisions via la fonctionnalité d'appel de fonctions (function calling). Cette approche permet de tirer parti de la puissance de l'IA pour l'extraction d'informations tout en déléguant les décisions complexes à un moteur de règles spécialisé.
@@ -54,15 +58,15 @@ Nous explorerons les règles métier dans ODM et les modifierons pour oberver la
 
 **Déroulement de la session:**
 
-1. **Introduction à ChatGPT:** Nous commencerons par une présentation des capacités de ChatGPT et de ses limites dans la prise de décision.
-2. **Introduction au Function Calling:** Ensuite, nous verrons comment utiliser le function calling pour connecter ChatGPT à un moteur de règles.
-3. **Démonstration Pratique:** Nous créerons ensemble un assistant conversationnel et le connecterons à un moteur de règles pour un cas d'utilisation pratique.
+1. **Démonstration IBU Assurances:** Présentation de l'assistant conversationnel capable de s'appuyer sur le moteur de règles.
+2. **Découverte de l'assistant:** Chacun prend en main la plateforme, découvre ses composants et teste la prise de décision par l'IA générative seule.
+3. **Délégation de décision:** On autorise l'agent à invoquer ODM et on observe la puissance de l'IA hybride.
 4. **Modification des Règles:** Enfin, nous modifierons une règle dans le moteur de règles pour vérifier que l'assistant délègue bien la décision et que les changements sont pris en compte.
 
 **À la fin de ce workshop, vous serez en mesure de:**
 
-- Comprendre comment extraire des informations pertinentes à partir de textes complexes en utilisant ChatGPT.
-- Configurer un assistant conversationnel qui utilise un moteur de règles pour des décisions fiables.
+- Comprendre les limitations des LLM dans la prise de décision.
+- Comprendre l'intérêt d'allier IA symbolique et IA neuronale pour l'automatisation intelligente de décisions opérationnelles.
 - Apporter des modifications aux règles et vérifier leur impact sur les décisions prises par l'assistant.
 
 Je vous encourage à participer activement, poser des questions, et profiter de cette opportunité pour explorer les possibilités passionnantes de l'automatisation intelligente. Ensemble, nous allons voir comment combiner le meilleur des deux mondes pour créer des solutions robustes et efficaces.
@@ -70,3 +74,8 @@ Je vous encourage à participer activement, poser des questions, et profiter de 
 ---
 
 **Merci et bon workshop à tous!**
+
+---
+
+---
+
