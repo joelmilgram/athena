@@ -79,3 +79,35 @@ Je vous encourage à participer activement, poser des questions, et profiter de 
 
 ---
 
+# 1. Démonstration IBU Assurances
+
+https://www.youtube.com/watch?v=Sk-fDGW6J5k
+
+---
+
+---
+
+# 2. Découverte de l'assistant
+
+Sur votre ordinateur, lancer Microsoft Remote Desktop
+
+PC: l'URL de l'instance réservée pour vous
+
+Username: `techzone`
+
+Password: ÌBMDem0s`
+
+<img width="590" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/9d44e3f6-50a5-4476-a3c8-1fc63e87f8f5">
+
+---
+
+---
+
+# 3. Découverte de l'assistant
+
+---
+
+---
+
+# 4. Découverte de l'assistant
+
