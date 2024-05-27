@@ -89,15 +89,25 @@ https://www.youtube.com/watch?v=Sk-fDGW6J5k
 
 # 2. Découverte de l'assistant
 
-Sur votre ordinateur, lancer Microsoft Remote Desktop
+Sur votre ordinateur, lancez Microsoft Remote Desktop
 
 PC: l'URL de l'instance réservée pour vous
 
 Username: `techzone`
 
-Password: ÌBMDem0s`
+Password: `IBMDem0s`
 
 <img width="590" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/9d44e3f6-50a5-4476-a3c8-1fc63e87f8f5">
+
+---
+
+
+Lancez le navigateur Google Chrome
+
+<img width="1459" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5d8d7f30-a0c9-43a7-bfed-b96fa2208d43">
+---
+Description:
+- 
 
 ---
 
