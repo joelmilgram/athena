@@ -123,9 +123,12 @@ L'assistant est connecté à une base de données de clients et de sinistres.
 - Paramètres (logo engrenage au milieu en haut), possibilité de changer de langue
 
 ---
-## Chargement du document contenant les règlees de gestion de la société IBI Assusances
+## 2.1 Chargement du document contenant les règles de gestion de la société `IBU Assusances`
 
-Chiquez sur l'icone d'upload de document
+1. Cliquez sur l'icone d'upload de document
+
+![image](https://github.com/joelmilgram/athena/assets/150163964/6543a90e-8a52-499b-b153-4a71f3bbcd3c)
+
 Sélectionnez le document Policies IBU Assurances.pdf
 
 Le document est chargé par le LLM
