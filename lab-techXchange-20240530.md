@@ -129,19 +129,27 @@ L'assistant est connecté à une base de données de clients et de sinistres.
 
 ![image](https://github.com/joelmilgram/athena/assets/150163964/6543a90e-8a52-499b-b153-4a71f3bbcd3c)
 
-Sélectionnez le document Policies IBU Assurances.pdf
+Sélectionnez le document `IBU policies.pdf`
 
-Le document est chargé par le LLM
-Il le vectorise et le tient à disposition pour étendre ses connaissances
+Le document est chargé par le LLM. Après quelques instants, un message apparaît dans la zone de conversation :
 
-Lors d'une requête, il sera à même d'utiliser le contenu pour sa réponse.
+<img width="1177" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4a312b8c-0f30-43fe-b27c-acbe271d4b0a">
 
-Le document peut être consulté à travers l'interface de l'assistant. C'est un document rudimentaire présentant 8 règles métier sur le traitement des réclamations sur la gestion des sinistres chez IBU Assurances. Trois cas sont pris en compte : 
+L'assistant utilise le contenu du fichier pour étendre ses connaissances. Lors des futures requêtes, si un élément de ce document est sémantiquement proche, alors le LLM s'en servira dans la composition de la réponse à l'instar de tous les autres éléments de connaissance dont il dispose. D'un point de vue technique, cette fonction associée aux LLMs s'appelle la récupération augmentée de récupération ou Retrieval Augmented Generation (RAG).
+
+Une fois chargé, le document peut être consulté à travers l'interface de l'assistant. 
+C'est un document rudimentaire présentant 8 règles métier relative au traitement des réclamations sur la gestion des sinistres chez IBU Assurances. Trois cas sont pris en compte : 
+
 - Mécontentement sur le délai de traitement
 - Insatisfaction sur le montant indemnisé
-- Menace de changer d'assureur
+- Menace de changer d 'assureur
 
-Dans le cas du mécontentement sur le délai de traitement, une règle particulière est définie par le Marketing d'IBU Assurances. C'est une offre promotionnelle qui permet de réaliser un upsell dans le cas d'un client mécontent
+Le Marketing d'IBU Assurances a défini une règle particulière : si un bon client est mécontent du retard de traitement et qu'une franchise lui a été retenue, IBU Assurances propose une promotion spéciale. Cette offre permet aux conseillers de vendre un service supplémentaire qui fidélise le client non VIP. Elle lui offre une option pour ne pas payer de franchise en cas de futur sinistre similaire. De plus, la première année de souscription est offerte.
+
+Voici la règle : 
+
+<img width="457" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/8a3ca132-1172-43a5-9871-01a18c7af2e4">
+
 
 L'assistant est connecté à une base de données sur des clients et leurs sinistres.
 
