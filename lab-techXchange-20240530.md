@@ -108,15 +108,19 @@ Lancez le navigateur Google Chrome (s'il ne l'est pas déjà)
 
 ---
 
-Description:
+Description: il s'agit de l'assistant interactif de la société fictive `IBU Assurances` destiné à aider les conseillers lorsque leurs clients les contactent pour des mécontentements liés au traitement de leur sinistre.
+
+L'assistant est connecté à une base de données de clients et de sinistres.
 
 - Sur la gauche les paramètres de l'assistant: 
-  - Prompt
-  - Température
-  - Utilisation de fichiers
-  - Utilisation du moteur de règles
+  - Prompt, dont le texte peut être modifié
+  - Température, c'est la mesure de la fréquence à laquelle le modèle produit un token moins probable. Plus la température est élevée, plus le résultat est aléatoire (et plus le risque d'hallucination est grand). Pour la plupart des cas d'utilisation factuels tels que l'extraction de données et les modèles de question/réponse dont on attend la plus grande fidélité dans la réponse, la température de 0 est la meilleure.
+  - Utilisation de fichiers externes pour enrichir les connaissances de l'agent (avec des données spécifiques à l'entreprise, par exemple)
+  - Utilisation du moteur de règles IBM ODM : c'est tout l'objet de ce Workshop, après avoir démontré que le LLM n'est pas fiable pour prendre des décisions, nous allons permettre à l'assistant interactif de se connecter au moteur de règles IBM ODM afin de déléguer la prise de décision à un moteur dont c'est le rôle !!
+
 - Sur la droite, le chatbot
-- En paramètre (logo engrenage), possibilité de changer de langue
+
+- Paramètres (logo engrenage au milieu en haut), possibilité de changer de langue
 
 ---
 ## Chargement du document contenant les règlees de gestion de la société IBI Assusances
