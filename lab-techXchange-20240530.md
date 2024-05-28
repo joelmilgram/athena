@@ -91,23 +91,55 @@ https://www.youtube.com/watch?v=Sk-fDGW6J5k
 
 Sur votre ordinateur, lancez Microsoft Remote Desktop
 
-PC: l'URL de l'instance réservée pour vous
+PC: `Athena`
 
 Username: `techzone`
 
 Password: `IBMDem0s`
 
-<img width="590" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/9d44e3f6-50a5-4476-a3c8-1fc63e87f8f5">
+<img width="593" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5ccdc77f-7ae5-4bc7-a5d7-d136913bf1db">
 
 ---
 
 
-Lancez le navigateur Google Chrome
+Lancez le navigateur Google Chrome (s'il ne l'est pas déjà)
 
 <img width="1459" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5d8d7f30-a0c9-43a7-bfed-b96fa2208d43">
+
 ---
+
 Description:
-- 
+
+- Sur la gauche les paramètres de l'assistant: 
+  - Prompt
+  - Température
+  - Utilisation de fichiers
+  - Utilisation du moteur de règles
+- Sur la droite, le chatbot
+- En paramètre (logo engrenage), possibilité de changer de langue
+
+---
+## Chargement du document contenant les règlees de gestion de la société IBI Assusances
+
+Chiquez sur l'icone d'upload de document
+Sélectionnez le document Policies IBU Assurances.pdf
+
+Le document est chargé par le LLM
+Il le vectorise et le tient à disposition pour étendre ses connaissances
+
+Lors d'une requête, il sera à même d'utiliser le contenu pour sa réponse.
+
+Le document peut être consulté à travers l'interface de l'assistant. C'est un document rudimentaire présentant 8 règles métier sur le traitement des réclamations sur la gestion des sinistres chez IBU Assurances. Trois cas sont pris en compte : 
+- Mécontentement sur le délai de traitement
+- Insatisfaction sur le montant indemnisé
+- Menace de changer d'assureur
+
+Dans le cas du mécontentement sur le délai de traitement, une règle particulière est définie par le Marketing d'IBU Assurances. C'est une offre promotionnelle qui permet de réaliser un upsell dans le cas d'un client mécontent
+
+L'assistant est connecté à une base de données sur des clients et leurs sinistres.
+
+Un certain nombre de caractéristiques est disponible sur chaque client et sur chaque sinistre.
+
 
 ---
 
