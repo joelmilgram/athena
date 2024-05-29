@@ -137,6 +137,8 @@ Le document est chargé par le LLM. Après quelques instants, un message appara�
 
 L'assistant utilise le contenu du fichier pour étendre ses connaissances. Lors des futures requêtes, si un élément de ce document est sémantiquement proche, alors le LLM s'en servira dans la composition de la réponse à l'instar de tous les autres éléments de connaissance dont il dispose. D'un point de vue technique, cette fonction associée aux LLMs s'appelle la récupération augmentée de récupération ou Retrieval Augmented Generation (RAG).
 
+Le document chargé ici est en anglais. La langue n'est pas importante pour le LLM. Les connaissances issues de ce document sont utilisables dans n'importe quelle langue.
+
 Une fois chargé, le document peut être consulté à travers l'interface de l'assistant. 
 Ici, c'est un document rudimentaire présentant 8 règles métier relative au traitement des réclamations sur la gestion des sinistres chez IBU Assurances. Trois cas sont pris en compte : 
 
@@ -195,7 +197,7 @@ Les deux derniers paragraphes concernent la suite à donner accompagnée de la r
 
 Nous attendions ici que l'assistant propose d'appliquer la règle UP1 et en détaille les actions. Ce n'est pas le cas du tout. Le LLM n'a pas été capable d'interpréter la règle en question et de prendre la décision correspondante. En l'absence de règle détectée, le LLM en invente une de toute pièce. On assiste à un phénomène d'hallucination. Cela fait partie des dangers actuels des LLMs, présentant un frein à leur adoptiondans le milieu professionnel, en particulier dans le cadre d'automatisation de décisions opérationnelles.
 
->L'algorithme du LLM étant probabiliste, vous obtenez certainement un texte sensiblement différent de la copie d'écran.
+>L'algorithme du LLM étant probabiliste, vous obtenez certainement un texte sensiblement différent des copies d'écran.
 
 ---
 
@@ -203,19 +205,34 @@ Nous attendions ici que l'assistant propose d'appliquer la règle UP1 et en dét
 
 > Vous verrez ainsi à la fois sa puissance et ses limitations.
 > Inutile de corriger les fautes dans votre requête, l'assistant est tolérant aux fautes de frappe.
+> Inventez vos propres questions pour challenger l'assistant
 
 Voici quelques exemples de requêtes que vous pouvez tester :
 
 - Quels sont les clients d'IBU Assurances ?
-- Quels sont ceux qui sont VIP ?
-- Quels sont ceux qui sont VIP et qui ont un score combiné supérieur à 5 ?
-- Donne un résumé des règles de gestion IBU Assurances provenant du document IBU policies
-- 
+- Lesquels sont VIP ?
+- Quels sont ceux qui NE sont PAS VIP et qui ont un score combiné supérieur à 5 ?
+- Donne un résumé des règles de gestion IBU Assurances provenant du document "IBU policies"
+- Peux-tu en faire un poème ?
+- ...
+
+---
+
+> Au fur et à mesure des questions, le LLM construit un contexte composé des éléments sémantiques issus des questions et des réponses. Il faut savoir que ce contexte est réutilisé : il est ajouté à chaque nouvelle requête. De fait, il influence les futures réponses. Si vous souhaitez réinitialiser le contexte pour tester une autre série de requêtes ou changer l'odre des requêtes, vous pouvez demander une nouvelle conversation grâce à l'un des boutons apparaissant en bas à gauche :
+> 
+> Pour réinistialiser le contexte, cliquez sur `Nouvelle conversation`
+> 
+> ![image](https://github.com/joelmilgram/athena/assets/150163964/a5b81736-fe7c-47d2-81d1-6a016b2c38a2)
+
 ---
 
 ---
 
 # 3. Délégation de décision
+
+Voyons à présent comment hybrider cet assistant conversationnel avec une logique de règles métier. Nous allons indiquer à l'assistant qu'il ne doit plus se fonder sur les documents ajoutés mais sur le service de règles mis à sa disposition.
+
+
 
 ---
 
