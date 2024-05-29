@@ -307,13 +307,42 @@ Changez la configuration de l'assistant avec `Utiliser la recherche dans les fic
 
 # 4. Modification des Règles
 
-Indépendamment de l'implémentation de l'assistant convesationnel, le service de décision invoqué pour répondre aux différents cas de réclamation sur le traitement des sinistres est maintenu dans **IBM Operational Decision Manager (ODM)**.
+Indépendamment de l'implémentation de l'assistant conversationnel, le service de décision invoqué pour répondre aux différents cas de réclamation sur le traitement des sinistres est maintenu dans **IBM Operational Decision Manager (ODM)**.
 
 Entrons dans le détail de la configuration de ce service de décision.
 
 1. Connectez-vous au **Decision Center**
    > Un onglet du navigateur devrait être ouvert sur l'URL `http://localhost:9060/decisioncenter` sinon ouvrez un nouvel onglet et utilisez le signet dans la barre des favoris.
-   > Le Username et le Password sont `OdmAdmin`.
+   > Le Username et le Password sont `odmAdmin`.
+   >
+   > <img width="1341" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/1f581188-3196-4a43-8ee5-00c55477c582">
+   >
+   > Ignorez le message d'erreur indiquant que le mot de passe doit être changé
+   >
+   > <img width="463" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/b57fe036-5aa0-4514-ad1c-c5918dcd409d">
+   >
+
 
 2. Naviguez dans la bibliothèque
-3.  Editez la règle `VIP Client` 
+   > Cliquez sur ds-iard-sinistre-nda
+   >
+   > <img width="1392" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/be514468-b053-4d7c-b676-552370d1ba10">
+   > 
+   > Puis sur `main`
+   >
+   > <img width="895" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/2e828fed-ec9a-46d8-8244-5164423d7334">
+   >
+   > Puis sur `default` dans `Risk of churn`
+   >
+   > <img width="1167" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/0b423640-b033-4935-9783-419f40f60505">
+   >
+   > Vous visualisés à présent les 3 règles 43, 44 et 45 à appliquer au cas où un client souhaiterait changer d'assureur :
+   >
+   > <img width="1171" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/2a6d354f-5f9b-435d-8ca8-ae0d7a54bd00">
+   >
+   > 
+
+
+
+
+4.  Editez la règle `VIP Client` 
