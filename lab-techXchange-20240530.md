@@ -39,14 +39,14 @@ specific situation.
 
 **Bonjour à tous et bienvenue à notre workshop sur l'automatisation intelligente des décisions avec Athena et IBM !**
 
-Aujourd'hui, nous allons explorer comment les technologies d'intelligence artificielle, et plus particulièrement les assistants conversationnels basés sur l'IA générative, peuvent être utilisés pour extraire des informations pertinentes et automatiser certaines tâches liées aux textes. Cependant, nous verrons également que ces assistants peuvent rencontrer des limites lorsqu'il s'agit de prendre des décisions complexes, notamment lorsqu'ils doivent interpréter des policies ou des règles métier détaillées. L'IA générative démontre des capacités remarquables pour travailler sur des documents : résumé, traduction, mise en relation, recherches sémantiques... En revanche, si on lui demande de prendre une décision sur la base de règles, l'approche probabiliste du LLM (Large Language Model) risque de générer un résultat totalement incorrect qui pourrait être préjudiciable dans un contexte métier.
+Aujourd'hui, nous allons explorer comment les technologies d'intelligence artificielle, et plus particulièrement les assistants conversationnels basés sur l'IA générative, peuvent être utilisés pour extraire des informations pertinentes et automatiser certaines tâches liées aux textes. Cependant, nous verrons également que ces assistants peuvent rencontrer des limites lorsqu'il s'agit de prendre des décisions complexes, notamment lorsqu'ils doivent mettre en oeuvre des politiques, des réglements, des bonnes pratiques, des régulations ou des règles métier. L'IA générative démontre des capacités remarquables pour travailler sur des documents : résumé, traduction, mise en relation, recherches sémantiques... En revanche, si on lui demande de prendre une décision sur la base de règles, l'approche probabiliste du LLM (Large Language Model) risque de générer un résultat totalement incorrect qui pourrait être préjudiciable dans un contexte métier.
 
 Pour surmonter cette limitation tout en profitant des avancées fulgurantes de l'IA générative, nous allons lui associer la technologie la plus spécialisée dans l'automatisation des décisions opérationnelles : le moteur de règles. Les moteurs d'automatisation des règles métier et des décisions opérationnelles sont également issus des travaux de l'Intelligence Artificielle et qualifiés d'IA symbolique puisqu'ils reposent sur la logique booléenne, les faits, les règles, les tables de décision et l'inférence. Ce workshop est donc un exemple d'IA hybride alliant l'IA symbolique et déterministe et l'IA neuronale et probabiliste (l'IA générative s'apparente aux réseaux de neurones). L'une permet de prendre des décisions correctes, précises, explicables et reproductibles sur la base d'une invocation de l'autre qui lui fournit des paramètres extraits de la conversation et qui présente les résultats à l'utilisateur sous forme textuelle en respectant un prompt.
 
 
-Dans ce workshop, nous allons utiliser le framework d'OpenAI pour implémenter l'agent conversationnel et ODM (Operational Decision Manager) comme moteur de règles métier.
+Dans ce workshop, nous allons utiliser l'API d'OpenAI pour implémenter l'agent conversationnel et le Système de Gestion de Règles Métier IBM ODM (Operational Decision Manager).
 Nous allons charger le document contenant les règles métier dans l'assistant et tenter de lui faire appliquer ces règles.
-Nous allons ensuite permettre à l'assistant d'accéder au moteur de décisions via la fonctionnalité d'appel de fonctions (function calling). Cette approche permet de tirer parti de la puissance de l'IA pour l'extraction d'informations tout en déléguant les décisions complexes à un moteur de règles spécialisé.
+Nous allons ensuite adopter une approche beaucoup plus robuste en permettant à l'assistant d'accéder au moteur de décisions via la fonctionnalité d'appel de fonctions (function calling). Cette approche permet de tirer parti de la puissance de l'IA pour l'extraction d'informations tout en déléguant les décisions complexes à un moteur de règles spécialisé.
 Nous explorerons les règles métier dans ODM et les modifierons pour oberver la puissance et la stabilité de cette approche d'IA hybride.
 
 **Objectifs du Workshop:**
@@ -135,7 +135,7 @@ Le document est chargé par le LLM. Après quelques instants, un message appara�
 
 <img width="1177" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4a312b8c-0f30-43fe-b27c-acbe271d4b0a">
 
-L'assistant utilise le contenu du fichier pour étendre ses connaissances. Lors des futures requêtes, si un élément de ce document est sémantiquement proche, alors le LLM s'en servira dans la composition de la réponse à l'instar de tous les autres éléments de connaissance dont il dispose. D'un point de vue technique, cette fonction associée aux LLMs s'appelle la génération augmentée de récupération ou Retrieval Augmented Generation (RAG).
+L'assistant utilise le contenu du fichier pour étendre ses connaissances. Lors des futures requêtes, si un élément de la requête est sémantiquement proche d'éléments de ce document, alors le LLM intègre ces derniers dans son contexte de réponse. D'un point de vue technique, cette fonction associée aux LLMs s'appelle la génération augmentée de récupération ou Retrieval Augmented Generation (RAG).
 
 Le document chargé ici est en anglais. La langue n'est pas importante pour le LLM. Les connaissances issues de ce document sont utilisables dans n'importe quelle langue.
 
@@ -175,7 +175,7 @@ Bien à vous
 Robert Dupont
 ```
 
->_Le client Robert Dupont est dans le cas de la règle UP1 détaillée ci-dessus_
+>_Les données du client Robert Dupont sont telles qu'il répond aux conditions d'application de la règle UP1 : non VIP, score combiné au moins 5, etc._
 
 
 2. Appuyez sur `Enter` ou cliquez sur la flèche à droite de la zone de saisie
@@ -195,7 +195,7 @@ Les deux derniers paragraphes concernent la suite à donner accompagnée de la r
 
 **Même si la décision semble tout à fait intelligible, il ne s'agit absolument pas de ce qui est indiqué dans le document !!**
 
-Nous attendions ici que l'assistant propose d'appliquer la règle UP1 et en détaille les actions. Ce n'est pas le cas du tout. Le LLM n'a pas été capable d'interpréter la règle en question et de prendre la décision correspondante. En l'absence de règle détectée, le LLM en invente une de toute pièce. On assiste à un phénomène d'hallucination. Cela fait partie des dangers actuels des LLMs, présentant un frein à leur adoptiondans le milieu professionnel, en particulier dans le cadre d'automatisation de décisions opérationnelles.
+Nous attendions ici que l'assistant propose d'appliquer la règle UP1 et en détaille les actions. Ce n'est pas le cas du tout. Le LLM n'a pas été capable d'interpréter la règle en question et de prendre la décision correspondante. En l'absence de détection de règle, le LLM en invente une de toute pièce. On assiste à un phénomène d'hallucination. Cela fait partie des dangers actuels des LLMs, présentant un frein à leur adoption dans le milieu professionnel, en particulier dans le cadre d'automatisation de décisions opérationnelles.
 
 > L'algorithme du LLM étant probabiliste, vous obtenez certainement un texte sensiblement différent des copies d'écran.
 
@@ -230,7 +230,7 @@ Voici quelques exemples de requêtes que vous pouvez tester :
 
 # 3. Délégation de décision
 
-Voyons à présent comment hybrider cet assistant conversationnel avec une logique de règles métier. Nous allons indiquer à l'assistant qu'il ne doit plus se fonder sur les documents ajoutés mais sur le service de règles mis à sa disposition.
+Voyons à présent comment renforcer la capacité de prise de décision de cet assistant conversationnel grâce à une logique de règles métier. Nous allons indiquer à l'assistant qu'il ne doit plus se fonder sur les documents ajoutés mais sur le service de règles mis à sa disposition.
 
 1. Désactivez la génération augmentée par les textes ajoutés
   > A coté du libellé `Utiliser la recherche dans les fichiers ?`, basculez le curseur de `yes` à `no`
@@ -263,7 +263,7 @@ L'interface change de couleur pour signaler la présence du moteur de règles.
   > 
   > `Robert Dupont est mécontent du temps de traitement`
   >
-  > L'assistant délègue la prise de décision au moteur de règles qui répond sans ambiguïté et de manière répétable avec la réponse attendue
+  > L'assistant délègue la prise de décision au moteur de règles qui répond sans ambiguïté et de manière reproductible avec la réponse attendue
   >
   > <img width="1134" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/27c79438-de68-479b-a14f-613018383ea1">
 
@@ -283,7 +283,7 @@ On note différents appels listés par ordre anté-chronologique :
   > <img width="785" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5a96e73a-c596-4fdf-bb0c-06637c750074">
 
 
-- Le second bloc `odm_get_client_action` est l'appel au moteur de règles. L'assistant a été configuré pour invoquer le moteur de règles si un client est mécontent pour l'un des 3 motifs suivants : délai, montant, churn. Dans ce cas, il invoque un service de règles de type Next Best Action sur la base du client, du motif et de la locale dans laquelle la réponse sera composée.
+- Le second bloc `odm_get_client_action` est l'appel au moteur de règles. L'assistant a été configuré pour invoquer le moteur de règles si un client est mécontent dans un des contextes suivants : délai, montant, churn. Dans ce cas, il invoque un service de règles de type Next Best Action sur la base du client, du motif et de la locale dans laquelle la réponse sera composée.
   > <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4311fbb2-0ba4-4c4f-b593-f6d1ac952fd9">
 
 
