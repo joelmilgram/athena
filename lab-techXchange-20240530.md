@@ -324,7 +324,7 @@ Entrons dans le détail de la configuration de ce service de décision.
 
 
 2. Naviguez dans la bibliothèque
-   > Cliquez sur ds-iard-sinistre-nda
+   > Cliquez sur `ds-iard-sinistre-nda`
    >
    > <img width="1392" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/be514468-b053-4d7c-b676-552370d1ba10">
    > 
@@ -336,13 +336,23 @@ Entrons dans le détail de la configuration de ce service de décision.
    >
    > <img width="1167" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/0b423640-b033-4935-9783-419f40f60505">
    >
-   > Vous visualisés à présent les 3 règles 43, 44 et 45 à appliquer au cas où un client souhaiterait changer d'assureur :
+   > Vous visualisez à présent les trois règles `43`, `44` et `45` à appliquer au cas où un client souhaiterait changer d'assureur :
    >
    > <img width="1171" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/2a6d354f-5f9b-435d-8ca8-ae0d7a54bd00">
    >
-   > 
+   > Enfin, cliquez sur la règle `VIP client` que nous allons éditer.
 
+---
 
+3.  Editez la règle `VIP Client` 
+    > Cliquez sur le nom de la règle
+    >
+    > <img width="1141" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/64e079d0-6b6a-4e86-94e8-d1c994673260">
+    >
+    > Cliquez sur le stylo pour l'éditer
+    >
+    > ![image](https://github.com/joelmilgram/athena/assets/150163964/852a644c-d3fa-4bd8-9dbc-a2b5d91d1518)
+    >
+    > 
 
-
-4.  Editez la règle `VIP Client` 
+    
