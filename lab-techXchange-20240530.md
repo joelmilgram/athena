@@ -277,18 +277,24 @@ L'interface change de couleur pour signaler la présence du moteur de règles.
 >
 > <img width="1147" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/840966a0-f3ef-40d5-b017-b2fdce8deb67">
 
+
 On note différents appels listés par ordre anté-chronologique :
 - Le premier bloc `message_creation` correspond à la dernière action réalisée par l'assistant : utiliser toutes les connaissances précédentes pour composer la réponse en respect du prompt de l'assistant. Il s'agit de la production de texte par l'IA générative.
-<img width="785" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5a96e73a-c596-4fdf-bb0c-06637c750074">
+> <img width="785" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5a96e73a-c596-4fdf-bb0c-06637c750074">
+
 
 - Le second bloc `odm_get_client_action` est l'appel au moteur de règles. L'assistant a été configuré pour invoquer le moteur de règles si un client est mécontent pour l'un des 3 motifs suivants : délai, montant, churn. Dans ce cas, il invoque un service de règles de type Next Best Action sur la base du client, du motif et de la locale dans laquelle la réponse sera composée.
-<img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4311fbb2-0ba4-4c4f-b593-f6d1ac952fd9">
+> <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4311fbb2-0ba4-4c4f-b593-f6d1ac952fd9">
+
 
 - Le troisième bloc `get_claim_json` est l'appel à la fonctiton de récupération des détails du sinistre `S3`
-<img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/691c33f0-8aa9-458b-8509-789990a1997d">
+> <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/691c33f0-8aa9-458b-8509-789990a1997d">
+
 
 - Enfin, le dernier bloc `get_client_by_name_json` correspond à ce que l'assistant a fait en premier : invoquer la fonction de récupération des informations du client à partir de son nom, en l'ocurrence : `Robert Dupont`
-<img width="789" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/cffbbcc4-4446-4e9b-8ab0-1f73020713ea">
+> <img width="789" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/cffbbcc4-4446-4e9b-8ab0-1f73020713ea">
+
+---
 
 Ce mécanisme d'appel de fonctions par le LLM est nommé `tool calling` ou `function calling`.
 Chez Athena, il nous permet de composer très rapidement des assistants convesationnels d'IA hybride. 
