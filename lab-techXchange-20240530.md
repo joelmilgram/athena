@@ -135,7 +135,7 @@ Le document est chargé par le LLM. Après quelques instants, un message appara�
 
 <img width="1177" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4a312b8c-0f30-43fe-b27c-acbe271d4b0a">
 
-L'assistant utilise le contenu du fichier pour étendre ses connaissances. Lors des futures requêtes, si un élément de ce document est sémantiquement proche, alors le LLM s'en servira dans la composition de la réponse à l'instar de tous les autres éléments de connaissance dont il dispose. D'un point de vue technique, cette fonction associée aux LLMs s'appelle la récupération augmentée de récupération ou Retrieval Augmented Generation (RAG).
+L'assistant utilise le contenu du fichier pour étendre ses connaissances. Lors des futures requêtes, si un élément de ce document est sémantiquement proche, alors le LLM s'en servira dans la composition de la réponse à l'instar de tous les autres éléments de connaissance dont il dispose. D'un point de vue technique, cette fonction associée aux LLMs s'appelle la génération augmentée de récupération ou Retrieval Augmented Generation (RAG).
 
 Le document chargé ici est en anglais. La langue n'est pas importante pour le LLM. Les connaissances issues de ce document sont utilisables dans n'importe quelle langue.
 
@@ -231,6 +231,17 @@ Voici quelques exemples de requêtes que vous pouvez tester :
 # 3. Délégation de décision
 
 Voyons à présent comment hybrider cet assistant conversationnel avec une logique de règles métier. Nous allons indiquer à l'assistant qu'il ne doit plus se fonder sur les documents ajoutés mais sur le service de règles mis à sa disposition.
+
+1. Désactivez la génération augmentée par les textes ajoutés
+> A coté du libellé "Utiliser la recherche dans les fichiers ?", basculez le curseur de "yes" à "no"
+
+2. Activez le moteur de règles
+> A coté du libellé "Utiliser les règles métier (IBM ODM) ?", basculez le curseur de "no" à "yes"
+
+L'interface change de couleur pour signaler la présence du moteur de règles.
+
+<img width="1157" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/a97799d5-bab1-47b1-9301-2e467bde9ca6">
+
 
 
 
