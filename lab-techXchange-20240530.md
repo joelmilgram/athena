@@ -154,9 +154,9 @@ Voici la règle (UP pour Upsell) :
 
 ## 2.2 Test des capacités de prise de décision d'un LLM
 
-Maintenant que les connaissances du LLM ont été enrichies des règles métier d'IBU Assurances, on pourrait penser que le LLM, qui a accès aux données, serait capable de les appliquer.
+Maintenant que les connaissances du LLM ont été enrichies des règles métier d'IBU Assurances, on pourrait penser que le LLM, qui a accès aux données clients et sinistres d'IBU Assurances, serait capable de les appliquer.
 
-Posons lui quelques questions concernant les clients et leurs sinistres.
+Posons lui quelques questions concernant des cas de mécontentement. L'assistant est utilisé en mode chatbot mais on pourrait imaginer le cas où il serait connecté directement à un système de messagerie électronique pour préparer automatiquement les réponses aux clients mécontents.
 
 1. Copiez et collez le texte ci-dessous dans la zone de conversation :
 ```
@@ -173,36 +173,53 @@ Bien à vous
 Robert Dupont
 ```
 
-__Le client Robert Dupont est dans le cas de la règle UP1 détaillée ci-dessus__
-2. Appuyez sur `Enter` ou cliquez sur la flèche
+>_Le client Robert Dupont est dans le cas de la règle UP1 détaillée ci-dessus_
 
 
-Après quelques secondes de traitement, vous observerez la réponse dans la conversation :
+2. Appuyez sur `Enter` ou cliquez sur la flèche à droite de la zone de saisie
+
+
+Après quelques secondes de traitement, vous observez la réponse dans la conversation :
 
 <img width="1186" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5b7ff9af-767f-41c6-a137-86b24a40f075">
 
+Conformément aux recommandations du prompt, l'assistant détaille les informations récupérées sur le client et le sinistre. Puis l'assistant indique l'objet de la réclamation. Tout ceci est correct.
+
 ---
-
-Conformément aux recommandations du prompt, l'assistant détaille les informations récupérées sur le client et le sinistre. Puis l'assistant indique l'objet de la réclamation.
-
-Les deux derniers paragraphes conseillent sur la suite à donner avec la référence de la règle de gestion.
 
 <img width="727" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/bebd1a30-5376-4d68-807f-7b6b3b78cf0f">
 
-L'assistant est connecté à une base de données sur des clients et leurs sinistres.
+Les deux derniers paragraphes concernent la suite à donner accompagnée de la référence de la règle de gestion.
 
-Un certain nombre de caractéristiques est disponible sur chaque client et sur chaque sinistre.
+**Même si la décision semble tout à fait intelligible, il ne s'agit absolument pas de ce qui est indiqué dans le document !!**
 
+Nous attendions ici que l'assistant propose d'appliquer la règle UP1 et en détaille les actions. Ce n'est pas le cas du tout. Le LLM n'a pas été capable d'interpréter la règle en question et de prendre la décision correspondante. En l'absence de règle détectée, le LLM en invente une de toute pièce. On assiste à un phénomène d'hallucination. Cela fait partie des dangers actuels des LLMs, présentant un frein à leur adoptiondans le milieu professionnel, en particulier dans le cadre d'automatisation de décisions opérationnelles.
+
+>L'algorithme du LLM étant probabiliste, vous obtenez certainement un texte sensiblement différent de la copie d'écran.
+
+---
+
+3. Prenez un peu de temps pour interroger l'assistant
+
+> Vous verrez ainsi à la fois sa puissance et ses limitations.
+> Inutile de corriger les fautes dans votre requête, l'assistant est tolérant aux fautes de frappe.
+
+Voici quelques exemples de requêtes que vous pouvez tester :
+
+- Quels sont les clients d'IBU Assurances ?
+- Quels sont ceux qui sont VIP ?
+- Quels sont ceux qui sont VIP et qui ont un score combiné supérieur à 5 ?
+- Donne un résumé des règles de gestion IBU Assurances provenant du document IBU policies
+- 
+---
+
+---
+
+# 3. Délégation de décision
 
 ---
 
 ---
 
-# 3. Découverte de l'assistant
-
----
-
----
-
-# 4. Découverte de l'assistant
+# 4. Modification des Règles
 
