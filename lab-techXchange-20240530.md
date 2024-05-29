@@ -125,20 +125,20 @@ L'assistant est connecté à une base de données de clients et de sinistres.
 ---
 ## 2.1 Chargement du document contenant les règles de gestion de la société `IBU Assusances`
 
-1. Cliquez sur l'icone d'upload de document
+Cliquez sur l'icone d'upload de document
 
 ![image](https://github.com/joelmilgram/athena/assets/150163964/6543a90e-8a52-499b-b153-4a71f3bbcd3c)
 
 Sélectionnez le document `IBU policies.pdf`
 
-Le document est chargé par le LLM. Après quelques instants, un message apparaît dans la zone de conversation :
+Le document est chargé par le LLM. Après quelques instants, un message apparaît dans la zone de conversation et le document s'affiche à droite de l'icone d'upload.
 
 <img width="1177" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4a312b8c-0f30-43fe-b27c-acbe271d4b0a">
 
 L'assistant utilise le contenu du fichier pour étendre ses connaissances. Lors des futures requêtes, si un élément de ce document est sémantiquement proche, alors le LLM s'en servira dans la composition de la réponse à l'instar de tous les autres éléments de connaissance dont il dispose. D'un point de vue technique, cette fonction associée aux LLMs s'appelle la récupération augmentée de récupération ou Retrieval Augmented Generation (RAG).
 
 Une fois chargé, le document peut être consulté à travers l'interface de l'assistant. 
-C'est un document rudimentaire présentant 8 règles métier relative au traitement des réclamations sur la gestion des sinistres chez IBU Assurances. Trois cas sont pris en compte : 
+Ici, c'est un document rudimentaire présentant 8 règles métier relative au traitement des réclamations sur la gestion des sinistres chez IBU Assurances. Trois cas sont pris en compte : 
 
 - Mécontentement sur le délai de traitement
 - Insatisfaction sur le montant indemnisé
@@ -146,10 +146,48 @@ C'est un document rudimentaire présentant 8 règles métier relative au traitem
 
 Le Marketing d'IBU Assurances a défini une règle particulière : si un bon client est mécontent du retard de traitement et qu'une franchise lui a été retenue, IBU Assurances propose une promotion spéciale. Cette offre permet aux conseillers de vendre un service supplémentaire qui fidélise le client non VIP. Elle lui offre une option pour ne pas payer de franchise en cas de futur sinistre similaire. De plus, la première année de souscription est offerte.
 
-Voici la règle : 
+Voici la règle (UP pour Upsell) : 
 
 <img width="457" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/8a3ca132-1172-43a5-9871-01a18c7af2e4">
 
+---
+
+## 2.2 Test des capacités de prise de décision d'un LLM
+
+Maintenant que les connaissances du LLM ont été enrichies des règles métier d'IBU Assurances, on pourrait penser que le LLM, qui a accès aux données, serait capable de les appliquer.
+
+Posons lui quelques questions concernant les clients et leurs sinistres.
+
+1. Copiez et collez le texte ci-dessous dans la zone de conversation :
+```
+Comment traiter cet email client reçu:
+De: Robert Dupont
+A: reclamations-sinistres@ibu.com
+Objet: Mécontentement
+
+Madame, Monsieur,
+
+Mon sinistre n’est toujours pas traité. C’est un vrai scandale !!
+
+Bien à vous
+Robert Dupont
+```
+
+__Le client Robert Dupont est dans le cas de la règle UP1 détaillée ci-dessus__
+2. Appuyez sur `Enter` ou cliquez sur la flèche
+
+
+Après quelques secondes de traitement, vous observerez la réponse dans la conversation :
+
+<img width="1186" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5b7ff9af-767f-41c6-a137-86b24a40f075">
+
+---
+
+Conformément aux recommandations du prompt, l'assistant détaille les informations récupérées sur le client et le sinistre. Puis l'assistant indique l'objet de la réclamation.
+
+Les deux derniers paragraphes conseillent sur la suite à donner avec la référence de la règle de gestion.
+
+<img width="727" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/bebd1a30-5376-4d68-807f-7b6b3b78cf0f">
 
 L'assistant est connecté à une base de données sur des clients et leurs sinistres.
 
