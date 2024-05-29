@@ -222,7 +222,7 @@ Voici quelques exemples de requêtes que vous pouvez tester :
 > 
 > Pour réinistialiser le contexte, cliquez sur `Nouvelle conversation`
 > 
-> ![image](https://github.com/joelmilgram/athena/assets/150163964/a5b81736-fe7c-47d2-81d1-6a016b2c38a2)
+> <img width="500" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/a5b81736-fe7c-47d2-81d1-6a016b2c38a2">
 
 ---
 
@@ -233,14 +233,65 @@ Voici quelques exemples de requêtes que vous pouvez tester :
 Voyons à présent comment hybrider cet assistant conversationnel avec une logique de règles métier. Nous allons indiquer à l'assistant qu'il ne doit plus se fonder sur les documents ajoutés mais sur le service de règles mis à sa disposition.
 
 1. Désactivez la génération augmentée par les textes ajoutés
-> A coté du libellé "Utiliser la recherche dans les fichiers ?", basculez le curseur de "yes" à "no"
+> A coté du libellé `Utiliser la recherche dans les fichiers ?`, basculez le curseur de `yes` à `no`
+
+---
 
 2. Activez le moteur de règles
-> A coté du libellé "Utiliser les règles métier (IBM ODM) ?", basculez le curseur de "no" à "yes"
+> A coté du libellé `Utiliser les règles métier (IBM ODM) ?`, basculez le curseur de `no` à `yes`
 
 L'interface change de couleur pour signaler la présence du moteur de règles.
 
 <img width="1157" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/a97799d5-bab1-47b1-9301-2e467bde9ca6">
+
+---
+
+3. Recommencez la conversation
+> Cliquez sur le bouton `Nouvelle conversation`
+> 
+> <img width="500" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/a4202dac-5da4-4466-9e40-6ec87a5f56ff">
+>
+> ---
+>
+> Un message _non traduit_ vous prévient que le contexte a été purgé et vous permet de nettoyer la fenêtre de conversation
+> <img width="681" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/94e7e8c1-a9ef-47e2-8cbb-a3e422db6f7b">
+
+---
+
+4. Interrogez à nouveau l'assistant sur le cas de Robert Dupont
+> Vous pouvez par exemple envoyer l'information suivante :
+> 
+> `Robert Dupont est mécontent du temps de traitement`
+>
+> L'assistant délègue la prise de décision au moteur de règles qui répond sans ambiguïté et de manière répétable avec la réponse attendue
+>
+> <img width="1134" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/27c79438-de68-479b-a14f-613018383ea1">
+
+---
+
+5. Pour analyser le fonctionnement de l'assistant, vous pouvez cliquer sur le bouton `Afficher les étapes d'exécution`
+> <img width="500" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/74d810ac-9f81-45bd-b5a8-197016dcb87a">
+>
+> Un panneau liste les appels réalisés par l'assistant
+>
+> <img width="1147" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/840966a0-f3ef-40d5-b017-b2fdce8deb67">
+
+On note différents appels listés en ordre anté-chronologique :
+- Le premier bloc `message creation` correspond à la dernière action réalisée par l'assistant : utiliser toutes les connaissances précédentes pour composer la réponse en respect du prompt de l'assistant.
+- <img width="785" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5a96e73a-c596-4fdf-bb0c-06637c750074">
+-
+- Le second est l'appel au moteur de règles. L'assistant a été configuré pour invoquer le moteur de règles si un client est mécontent pour l'un des 3 motifs suivants : délai, montant, churn.
+- <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4311fbb2-0ba4-4c4f-b593-f6d1ac952fd9">
+- 
+- Le troisième est l'appel à la fonctiton de récupération des détails du sinistre `S3`
+- <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/691c33f0-8aa9-458b-8509-789990a1997d">
+
+- Enfin, la première action de l'assistant a été d'invoquer la fonction de récupération des informations du client à partir de son nom, en l'ocurrence : `Robert Dupont`
+- <img width="789" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/cffbbcc4-4446-4e9b-8ab0-1f73020713ea">
+
+Le fonctionnement de l'assistant n'est expliqué que du point de vue des fonctions appelées. C'est ce mécanisme qui nous intéresse ici et qui permet à Athena de composer très rapidement des assistants convesationnels d'IA hybride. 
+Pour voir la liste des fonctions disponibles pour l'assistant, vous pouvez cliquer sur le bouton `Afficher les outils disponibles`
+
 
 
 
