@@ -197,15 +197,15 @@ Les deux derniers paragraphes concernent la suite à donner accompagnée de la r
 
 Nous attendions ici que l'assistant propose d'appliquer la règle UP1 et en détaille les actions. Ce n'est pas le cas du tout. Le LLM n'a pas été capable d'interpréter la règle en question et de prendre la décision correspondante. En l'absence de règle détectée, le LLM en invente une de toute pièce. On assiste à un phénomène d'hallucination. Cela fait partie des dangers actuels des LLMs, présentant un frein à leur adoptiondans le milieu professionnel, en particulier dans le cadre d'automatisation de décisions opérationnelles.
 
->L'algorithme du LLM étant probabiliste, vous obtenez certainement un texte sensiblement différent des copies d'écran.
+> L'algorithme du LLM étant probabiliste, vous obtenez certainement un texte sensiblement différent des copies d'écran.
 
 ---
 
 3. Prenez un peu de temps pour interroger l'assistant
 
-> Vous verrez ainsi à la fois sa puissance et ses limitations.
-> Inutile de corriger les fautes dans votre requête, l'assistant est tolérant aux fautes de frappe.
-> Inventez vos propres questions pour challenger l'assistant
+  > Vous verrez ainsi à la fois sa puissance et ses limitations.
+  > Inutile de corriger les fautes dans votre requête, l'assistant est tolérant aux fautes de frappe.
+  > Inventez vos propres questions pour challenger l'assistant
 
 Voici quelques exemples de requêtes que vous pouvez tester :
 
@@ -233,12 +233,12 @@ Voici quelques exemples de requêtes que vous pouvez tester :
 Voyons à présent comment hybrider cet assistant conversationnel avec une logique de règles métier. Nous allons indiquer à l'assistant qu'il ne doit plus se fonder sur les documents ajoutés mais sur le service de règles mis à sa disposition.
 
 1. Désactivez la génération augmentée par les textes ajoutés
-> A coté du libellé `Utiliser la recherche dans les fichiers ?`, basculez le curseur de `yes` à `no`
+  > A coté du libellé `Utiliser la recherche dans les fichiers ?`, basculez le curseur de `yes` à `no`
 
 ---
 
 2. Activez le moteur de règles
-> A coté du libellé `Utiliser les règles métier (IBM ODM) ?`, basculez le curseur de `no` à `yes`
+  > A coté du libellé `Utiliser les règles métier (IBM ODM) ?`, basculez le curseur de `no` à `yes`
 
 L'interface change de couleur pour signaler la présence du moteur de règles.
 
@@ -247,52 +247,52 @@ L'interface change de couleur pour signaler la présence du moteur de règles.
 ---
 
 3. Recommencez la conversation
-> Cliquez sur le bouton `Nouvelle conversation`
-> 
-> <img width="500" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/a4202dac-5da4-4466-9e40-6ec87a5f56ff">
->
-> ---
->
-> Un message _non traduit_ vous prévient que le contexte a été purgé et vous permet de nettoyer la fenêtre de conversation
-> <img width="681" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/94e7e8c1-a9ef-47e2-8cbb-a3e422db6f7b">
+  > Cliquez sur le bouton `Nouvelle conversation`
+  > 
+  > <img width="500" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/a4202dac-5da4-4466-9e40-6ec87a5f56ff">
+  >
+  > ---
+  >
+  > Un message _non traduit_ vous prévient que le contexte a été purgé et vous permet de nettoyer la fenêtre de conversation
+  > <img width="681" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/94e7e8c1-a9ef-47e2-8cbb-a3e422db6f7b">
 
 ---
 
 4. Interrogez à nouveau l'assistant sur le cas de Robert Dupont
-> Vous pouvez par exemple envoyer l'information suivante :
-> 
-> `Robert Dupont est mécontent du temps de traitement`
->
-> L'assistant délègue la prise de décision au moteur de règles qui répond sans ambiguïté et de manière répétable avec la réponse attendue
->
-> <img width="1134" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/27c79438-de68-479b-a14f-613018383ea1">
+  > Vous pouvez par exemple envoyer l'information suivante :
+  > 
+  > `Robert Dupont est mécontent du temps de traitement`
+  >
+  > L'assistant délègue la prise de décision au moteur de règles qui répond sans ambiguïté et de manière répétable avec la réponse attendue
+  >
+  > <img width="1134" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/27c79438-de68-479b-a14f-613018383ea1">
 
 ---
 
 5. Pour traiter la requête qui lui est soumise, l'assistant dispose d'une bibliothèque de fonctions spécifiques au cas traité (ici ; traitement des réclamations sur les sinistres).
-> Découvrez la liste des fonctions appelées lors du traitement de la dernière requête en cliquant sur le bouton `Afficher les étapes d'exécution`
-> <img width="500" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/74d810ac-9f81-45bd-b5a8-197016dcb87a">
->
-> Un panneau liste les appels réalisés par l'assistant
->
-> <img width="1147" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/840966a0-f3ef-40d5-b017-b2fdce8deb67">
+  > Découvrez la liste des fonctions appelées lors du traitement de la dernière requête en cliquant sur le bouton `Afficher les étapes d'exécution`
+  > <img width="500" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/74d810ac-9f81-45bd-b5a8-197016dcb87a">
+  >
+  > Un panneau liste les appels réalisés par l'assistant
+  >
+  > <img width="1147" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/840966a0-f3ef-40d5-b017-b2fdce8deb67">
 
 
 On note différents appels listés par ordre anté-chronologique :
 - Le premier bloc `message_creation` correspond à la dernière action réalisée par l'assistant : utiliser toutes les connaissances précédentes pour composer la réponse en respect du prompt de l'assistant. Il s'agit de la production de texte par l'IA générative.
-> <img width="785" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5a96e73a-c596-4fdf-bb0c-06637c750074">
+  > <img width="785" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5a96e73a-c596-4fdf-bb0c-06637c750074">
 
 
 - Le second bloc `odm_get_client_action` est l'appel au moteur de règles. L'assistant a été configuré pour invoquer le moteur de règles si un client est mécontent pour l'un des 3 motifs suivants : délai, montant, churn. Dans ce cas, il invoque un service de règles de type Next Best Action sur la base du client, du motif et de la locale dans laquelle la réponse sera composée.
-> <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4311fbb2-0ba4-4c4f-b593-f6d1ac952fd9">
+  > <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4311fbb2-0ba4-4c4f-b593-f6d1ac952fd9">
 
 
 - Le troisième bloc `get_claim_json` est l'appel à la fonctiton de récupération des détails du sinistre `S3`
-> <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/691c33f0-8aa9-458b-8509-789990a1997d">
+  > <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/691c33f0-8aa9-458b-8509-789990a1997d">
 
 
 - Enfin, le dernier bloc `get_client_by_name_json` correspond à ce que l'assistant a fait en premier : invoquer la fonction de récupération des informations du client à partir de son nom, en l'ocurrence : `Robert Dupont`
-> <img width="789" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/cffbbcc4-4446-4e9b-8ab0-1f73020713ea">
+  > <img width="789" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/cffbbcc4-4446-4e9b-8ab0-1f73020713ea">
 
 ---
 
@@ -301,13 +301,19 @@ Chez Athena, il nous permet de composer très rapidement des assistants convesat
 Pour voir la liste des fonctions disponibles pour l'assistant, vous pouvez cliquer sur le bouton `Afficher les outils disponibles`. 
 Changez la configuration de l'assistant avec `Utiliser la recherche dans les fichiers ?` et `Utiliser les règles métier (IBM ODM) ?` puis observez les conséquences sur la liste des fonctions à disposition de l'assitant.
 
-
-
-
-
 ---
 
 ---
 
 # 4. Modification des Règles
 
+Indépendamment de l'implémentation de l'assistant convesationnel, le service de décision invoqué pour répondre aux différents cas de réclamation sur le traitement des sinistres est maintenu dans **IBM Operational Decision Manager (ODM)**.
+
+Entrons dans le détail de la configuration de ce service de décision.
+
+1. Connectez-vous au **Decision Center**
+   > Un onglet du navigateur devrait être ouvert sur l'URL `http://localhost:9060/decisioncenter` sinon ouvrez un nouvel onglet et utilisez le signet dans la barre des favoris.
+   > Le Username et le Password sont `OdmAdmin`.
+
+2. Naviguez dans la bibliothèque
+3.  Editez la règle `VIP Client` 
