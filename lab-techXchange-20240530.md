@@ -269,7 +269,8 @@ L'interface change de couleur pour signaler la présence du moteur de règles.
 
 ---
 
-5. Pour analyser le fonctionnement de l'assistant, vous pouvez cliquer sur le bouton `Afficher les étapes d'exécution`
+5. Pour traiter la requête qui lui est soumise, l'assistant dispose d'une bibliothèque de fonctions spécifiques au cas traité (ici ; traitement des réclamations sur les sinistres).
+> Découvrez la liste des fonctions appelées lors du traitement de la dernière requête en cliquant sur le bouton `Afficher les étapes d'exécution`
 > <img width="500" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/74d810ac-9f81-45bd-b5a8-197016dcb87a">
 >
 > Un panneau liste les appels réalisés par l'assistant
@@ -278,19 +279,21 @@ L'interface change de couleur pour signaler la présence du moteur de règles.
 
 On note différents appels listés par ordre anté-chronologique :
 - Le premier bloc `message_creation` correspond à la dernière action réalisée par l'assistant : utiliser toutes les connaissances précédentes pour composer la réponse en respect du prompt de l'assistant. Il s'agit de la production de texte par l'IA générative.
-- <img width="785" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5a96e73a-c596-4fdf-bb0c-06637c750074">
--
+<img width="785" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/5a96e73a-c596-4fdf-bb0c-06637c750074">
+
 - Le second bloc `odm_get_client_action` est l'appel au moteur de règles. L'assistant a été configuré pour invoquer le moteur de règles si un client est mécontent pour l'un des 3 motifs suivants : délai, montant, churn. Dans ce cas, il invoque un service de règles de type Next Best Action sur la base du client, du motif et de la locale dans laquelle la réponse sera composée.
-- <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4311fbb2-0ba4-4c4f-b593-f6d1ac952fd9">
-- 
+<img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/4311fbb2-0ba4-4c4f-b593-f6d1ac952fd9">
+
 - Le troisième bloc `get_claim_json` est l'appel à la fonctiton de récupération des détails du sinistre `S3`
-- <img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/691c33f0-8aa9-458b-8509-789990a1997d">
+<img width="788" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/691c33f0-8aa9-458b-8509-789990a1997d">
 
-- Enfin, la première action de l'assistant  `get_client_by_name_json` a été d'invoquer la fonction de récupération des informations du client à partir de son nom, en l'ocurrence : `Robert Dupont`
-- <img width="789" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/cffbbcc4-4446-4e9b-8ab0-1f73020713ea">
+- Enfin, le dernier bloc `get_client_by_name_json` correspond à ce que l'assistant a fait en premier : invoquer la fonction de récupération des informations du client à partir de son nom, en l'ocurrence : `Robert Dupont`
+<img width="789" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/cffbbcc4-4446-4e9b-8ab0-1f73020713ea">
 
-Cette analyse du fonctionnement de l'assistant ne concerne que les fonctions appelées. C'est ce mécanisme, nommé `tool calling` ou `function calling` qui nous intéresse ici et qui permet à Athena de composer très rapidement des assistants convesationnels d'IA hybride. 
-Pour voir la liste des fonctions disponibles pour l'assistant, vous pouvez cliquer sur le bouton `Afficher les outils disponibles`. Changez la configuration de l'assistant avec `Utiliser la recherche dans les fichiers ?` et `Utiliser les règles métier (IBM ODM) ?` puis observez les conséquences sur la liste des fonctions à disposition de l'assitant.
+Ce mécanisme d'appel de fonctions par le LLM est nommé `tool calling` ou `function calling`.
+Chez Athena, il nous permet de composer très rapidement des assistants convesationnels d'IA hybride. 
+Pour voir la liste des fonctions disponibles pour l'assistant, vous pouvez cliquer sur le bouton `Afficher les outils disponibles`. 
+Changez la configuration de l'assistant avec `Utiliser la recherche dans les fichiers ?` et `Utiliser les règles métier (IBM ODM) ?` puis observez les conséquences sur la liste des fonctions à disposition de l'assitant.
 
 
 
