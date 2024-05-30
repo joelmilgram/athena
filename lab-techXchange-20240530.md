@@ -381,20 +381,7 @@ Entrons dans le détail de la configuration de ce service de décision.
 ---
 
 5. Déploiement
-   > La modification doit être rendue publique.
-   >
-   > Cliquez sur `Deploy`
-   >
-   > <img width="1680" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/c43cc51c-8f7a-464e-b996-9836eb50bd52">
-   > 
-   > Vous pouvez conserver les options par défaut et cliquer sur `Deploy`
-   > 
-   > <img width="1680" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/af93ed12-208b-41f2-b8b9-78d06059c63f">
-   >
-   > L'archive dee ruleApp est créée :
-   > 
-   > <img width="740" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/25ade360-449a-4d5e-b9a8-f3dfcf5c7df0">
-   > 
+   > Les modifications effectuées sont enfin déployées sur le serveur d'exécution.
 
 
 
