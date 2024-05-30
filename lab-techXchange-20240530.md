@@ -93,6 +93,8 @@ Sur votre ordinateur, lancez Microsoft Remote Desktop
 
 PC: `Athena`
 
+URL: `eu-de.services.cloud.techzone.ibm.com:xxxxx`
+
 Username: `techzone`
 
 Password: `IBMDem0s`
