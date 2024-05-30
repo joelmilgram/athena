@@ -324,20 +324,26 @@ Entrons dans le détail de la configuration de ce service de décision.
 
 
 2. Naviguez dans la bibliothèque
-   > Cliquez sur `ds-iard-sinistre-nda`
+   > Cliquez sur le service de décision `ds-iard-sinistre-nda`
    >
    > <img width="1392" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/be514468-b053-4d7c-b676-552370d1ba10">
    > 
-   > Puis sur `main`
+   > Puis sur la branche `main`
    >
-   > <img width="895" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/2e828fed-ec9a-46d8-8244-5164423d7334">
+   > <img width="600" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/2e828fed-ec9a-46d8-8244-5164423d7334">
    >
-   > Puis sur `default` dans `Risk of churn`
+   > Puis sur le répertoire `default` du paquet de règles `Risk of churn`
    >
-   > <img width="1167" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/0b423640-b033-4935-9783-419f40f60505">
+   > <img width="800" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/0b423640-b033-4935-9783-419f40f60505">
    >
    > Vous visualisez à présent les trois règles `43`, `44` et `45` à appliquer au cas où un client souhaiterait changer d'assureur :
    >
+   > Les voici telles qu'elles apparaissent dans le document pdf :
+   >
+   > <img width="625" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/c86beee9-809a-4727-afb1-20745b9ff325">
+   >
+   > Voici leur emplacement dans ODM :
+   > 
    > <img width="1171" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/2a6d354f-5f9b-435d-8ca8-ae0d7a54bd00">
    >
    > Enfin, cliquez sur la règle `VIP client` que nous allons éditer.
@@ -353,6 +359,48 @@ Entrons dans le détail de la configuration de ce service de décision.
     >
     > ![image](https://github.com/joelmilgram/athena/assets/150163964/852a644c-d3fa-4bd8-9dbc-a2b5d91d1518)
     >
-    > 
+    > Il semblerait que la règle ait été écrite de manière partielle si l'on compare avec le texte. Il manque la condition `si le client est VIP`
+    >
+
+---
+
+4. Modification de la règle
+   > Sous la première condition, vous ajoutez ` and 'the client' is vip `
+   >
+   > <img width="1499" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/36a9f6ae-36f6-4b6f-b31b-cd291c88830f">
+   > 
+   > Cliquez sur le bouton `Save` (l'icone du milieu sur la droite)
+   >
+   > <img width="1679" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/7d126242-4031-4b44-9464-e25f98977cfc">
+   > 
+   > Indiquez un commentaire avant de créer la nouvelle version de la règle.
+   > 
+   > <img width="1680" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/7df1928f-8855-49bc-8e5e-cc36cdf313cc">
+
+
+---
+
+5. Déploiement
+   > La modification doit être rendue publique.
+   >
+   > Cliquez sur `Deploy`
+   >
+   > <img width="1680" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/c43cc51c-8f7a-464e-b996-9836eb50bd52">
+   > 
+   > Vous pouvez conserver les options par défaut et cliquer sur `Deploy`
+   > 
+   > <img width="1680" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/af93ed12-208b-41f2-b8b9-78d06059c63f">
+   >
+   > L'archive dee ruleApp est créée :
+   > 
+   > <img width="740" alt="image" src="https://github.com/joelmilgram/athena/assets/150163964/25ade360-449a-4d5e-b9a8-f3dfcf5c7df0">
+   > 
+
+
+
+   
+
+
+
 
     
